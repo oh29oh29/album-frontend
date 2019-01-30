@@ -1,5 +1,6 @@
 <template>
   <section>
+    <router-view ></router-view>
   </section>
 </template>
 
@@ -13,6 +14,5 @@ export default {
 section {
   width: 100%;
   height: 100px;
-  background-color: green;
 }
 </style>
