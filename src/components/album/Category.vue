@@ -1,6 +1,8 @@
 <template>
   <div>
-    Category
+    <div v-for="category in categories" v-bind:key="category.id">
+      <p>{{ category.id + ' ' + category.title }}</p>
+    </div>
   </div>
 </template>
 
@@ -8,18 +10,19 @@
 export default {
   name: 'Category',
   created: function () {
+    let _this = this
     this.$http.get('/categories')
       .then(function (result) {
         console.log(result)
+        _this.categories = result.data
       })
   },
-  methods: {
-    test () {
-      this.$http.get('/categories')
-        .then(function (result) {
-          console.log(result)
-        })
+  data () {
+    return {
+      categories: []
     }
+  },
+  methods: {
   }
 }
 </script>
