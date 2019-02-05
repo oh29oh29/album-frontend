@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  name: 'List'
+  name: 'List',
+  created: function () {
+    this.$http.get('/posts')
+      .then(function (result) {
+        console.log(result)
+      })
+  }
 }
 </script>
 
