@@ -1,7 +1,9 @@
 <template>
   <article>
-    <div v-for="post in posts" v-bind:key="post.id" class="post" v-on:click="transferToDetail">
-      List
+    <div v-for="(post, index) in posts" v-bind:key="post.id" class="post" v-on:click="transferToDetail">
+      <span class="post-index">{{ index + 1 }}</span>
+      <span class="post-date">{{ post.date }}</span>
+      <p class="post-desc">{{ post.description }}</p>
     </div>
   </article>
 </template>
@@ -40,10 +42,21 @@ export default {
 .post {
   display: inline-block;
   width: 200px;
-  line-height: 100px;
   border: 1px solid black;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+}
+.post-index {
+  display: inline-block;
+}
+.post-date {
+  float: right;
+}
+.post-desc {
+  margin: 10px 0;
 }
 </style>
