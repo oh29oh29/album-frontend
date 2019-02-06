@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Category',
+      name: 'category',
       component: Category
     },
     {
       path: '/list',
-      name: 'List',
+      name: 'list',
       component: List
     }
   ]

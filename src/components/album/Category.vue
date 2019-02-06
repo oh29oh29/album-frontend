@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div v-for="category in categories" v-bind:key="category.id" class="category">
+    <div v-for="category in categories" v-bind:key="category.id" class="category" v-on:click="transferToList(category.id)">
       <span class="category-id">{{ category.id }}</span>
       <span class="category-title">{{ category.title }}</span>
       <p class="category-description">{{ category.description }}</p>
@@ -27,33 +27,32 @@ export default {
           console.log(result)
           _this.categories = result.data
         })
+    },
+    transferToList (categoryId) {
+      this.$router.push({name: 'list', params: {categoryId: categoryId}})
     }
   }
 }
 </script>
 
 <style scoped>
-  article {
-    width: 600px;
-    margin: 0 auto;
-  }
-  .category {
-    padding: 20px 10px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-bottom: 1px solid black;
-  }
-  .category:last-child {
-    border-bottom: 0;
-  }
-  .category-id {
-    display: inline-block;
-  }
-  .category-title {
-    display: block;
-    margin: 5px 0;
-  }
-  .category-description {
-    margin: 10px 0;
-  }
+.category {
+  padding: 20px 10px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+.category:last-child {
+  border-bottom: 0;
+}
+.category-id {
+  display: inline-block;
+}
+.category-title {
+  display: block;
+  margin: 5px 0;
+}
+.category-description {
+  margin: 10px 0;
+}
 </style>
