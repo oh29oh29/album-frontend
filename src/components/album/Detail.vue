@@ -1,7 +1,6 @@
 <template>
   <article>
-    <div v-for="(post, index) in posts" v-bind:key="post.id" class="post" v-on:click="transferToDetail(post.id)">
-      <span class="post-index">{{ index + 1 }}</span>
+    <div class="post">
       <span class="post-date">{{ post.date }}</span>
       <p class="post-desc">{{ post.description }}</p>
     </div>
@@ -10,29 +9,23 @@
 
 <script>
 export default {
-  name: 'List',
+  name: 'Detail',
   created: function () {
     this.fetchData()
   },
   data () {
     return {
-      posts: []
+      post: null
     }
   },
   methods: {
     fetchData () {
       let _this = this
-      this.$http.get('/post', {
-        params: {
-          categoryId: _this.$route.params.categoryId
-        }
-      }).then(function (result) {
-        console.log(result)
-        _this.posts = result.data
-      })
-    },
-    transferToDetail (postId) {
-      this.$router.push({name: 'detail', params: {postId: postId}})
+      this.$http.get('/post/' + _this.$route.params.postId)
+        .then(function (result) {
+          console.log(result)
+          _this.post = result.data
+        })
     }
   }
 }

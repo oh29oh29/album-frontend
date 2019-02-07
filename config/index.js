@@ -18,11 +18,11 @@ module.exports = {
           '^/categories': ''
         }
       },
-      '/posts': {
-        target: 'http://localhost:8080/posts',
+      '/post': {
+        target: 'http://localhost:8080/post',
         changeOrigin: true,
         pathRewrite: {
-          '^/posts': ''
+          '^/post': ''
         }
       }
     },
