@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div v-for="(post, index) in posts" v-bind:key="post.id" class="post" v-on:click="transferToDetail(post.id)">
+    <div v-for="(post, index) in posts" v-bind:key="post.id" class="post" v-on:click="linkToDetail(post.id)">
       <span class="post-index">{{ index + 1 }}</span>
       <span class="post-date">{{ post.date }}</span>
       <p class="post-desc">{{ post.description }}</p>
@@ -31,7 +31,7 @@ export default {
         _this.posts = result.data
       })
     },
-    transferToDetail (postId) {
+    linkToDetail (postId) {
       this.$router.push({name: 'detail', params: {postId: postId}})
     }
   }

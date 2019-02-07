@@ -1,6 +1,6 @@
 <template>
   <article>
-    <div v-for="category in categories" v-bind:key="category.id" class="category" v-on:click="transferToList(category.id)">
+    <div v-for="category in categories" v-bind:key="category.id" class="category" v-on:click="linkToList(category.id)">
       <span class="category-id">{{ category.id }}</span>
       <span class="category-title">{{ category.title }}</span>
       <p class="category-description">{{ category.description }}</p>
@@ -28,7 +28,7 @@ export default {
           _this.categories = result.data
         })
     },
-    transferToList (categoryId) {
+    linkToList (categoryId) {
       this.$router.push({name: 'list', params: {categoryId: categoryId}})
     }
   }
