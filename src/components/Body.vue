@@ -15,7 +15,8 @@ section {
   width: 100%;
 }
 article {
-  width: 660px;
+  width: 750px;
   margin: 0 auto;
+  font-size: 0;
 }
 </style>

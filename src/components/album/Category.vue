@@ -41,6 +41,7 @@ export default {
   margin: 10px 0;
   cursor: pointer;
   border-bottom: 1px solid black;
+  font-size: 16px;
 }
 .category:last-child {
   border-bottom: 0;

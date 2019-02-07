@@ -1,9 +1,7 @@
 <template>
   <article>
-    <div v-for="(post, index) in posts" v-bind:key="post.id" class="post" v-on:click="linkToDetail(post.id)">
-      <span class="post-index">{{ index + 1 }}</span>
-      <span class="post-date">{{ post.date }}</span>
-      <p class="post-desc">{{ post.description }}</p>
+    <div v-for="post in posts" v-bind:key="post.id" class="post" v-on:click="linkToDetail(post.id)">
+      <img v-bind:src="post.imageUrl">
     </div>
   </article>
 </template>
@@ -41,22 +39,11 @@ export default {
 <style scoped>
 .post {
   display: inline-block;
-  width: 200px;
-  border: 1px solid black;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  width: 250px;
+  height: 250px;
   cursor: pointer;
-  margin: 10px;
-  padding: 10px;
 }
-.post-index {
-  display: inline-block;
-}
-.post-date {
-  float: right;
-}
-.post-desc {
-  margin: 10px 0;
+.post:hover {
+  opacity: 0.5;
 }
 </style>

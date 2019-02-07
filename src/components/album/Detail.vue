@@ -1,7 +1,8 @@
 <template>
   <article>
     <div class="post">
-      <span class="post-date">{{ post.date }}</span>
+      <img class="post-img" v-bind:src="post.imageUrl">
+      <span class="post-date">{{ post.uploadDate }}</span>
       <p class="post-desc">{{ post.description }}</p>
     </div>
   </article>
@@ -15,7 +16,7 @@ export default {
   },
   data () {
     return {
-      post: null
+      post: {}
     }
   },
   methods: {
@@ -23,7 +24,7 @@ export default {
       let _this = this
       this.$http.get('/post/' + _this.$route.params.postId)
         .then(function (result) {
-          console.log(result)
+          console.log(result.data)
           _this.post = result.data
         })
     }
@@ -33,21 +34,10 @@ export default {
 
 <style scoped>
 .post {
-  display: inline-block;
-  width: 200px;
-  border: 1px solid black;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  cursor: pointer;
-  margin: 10px;
-  padding: 10px;
+  font-size: 16px;
 }
-.post-index {
-  display: inline-block;
-}
-.post-date {
-  float: right;
+.post-img {
+  display: block;
 }
 .post-desc {
   margin: 10px 0;
