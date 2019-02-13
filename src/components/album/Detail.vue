@@ -21,9 +21,9 @@ export default {
   },
   methods: {
     fetchData () {
-      let _this = this
+      const _this = this
       this.$http.get('/post/' + _this.$route.params.postId)
-        .then(function (result) {
+        .then(result => {
           console.log(result.data)
           _this.post = result.data
         })

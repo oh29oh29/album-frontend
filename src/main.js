@@ -12,7 +12,7 @@ Vue.prototype.$http = axios
 const isDev = true
 
 if (isDev) {
-  let mock = new MockAdapter(axios)
+  const mock = new MockAdapter(axios)
   const responseData = [
     {
       id: 1,

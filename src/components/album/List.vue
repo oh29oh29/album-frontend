@@ -19,18 +19,18 @@ export default {
   },
   methods: {
     fetchData () {
-      let _this = this
+      const _this = this
       this.$http.get('/post', {
         params: {
           categoryId: _this.$route.params.categoryId
         }
-      }).then(function (result) {
+      }).then(result => {
         console.log(result)
         _this.posts = result.data
       })
     },
     linkToDetail (postId) {
-      this.$router.push({name: 'detail', params: {postId: postId}})
+      this.$router.push({name: 'detail', params: { postId }})
     }
   }
 }

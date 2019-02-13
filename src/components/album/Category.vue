@@ -21,15 +21,15 @@ export default {
   },
   methods: {
     fetchData () {
-      let _this = this
+      const _this = this
       this.$http.get('/categories')
-        .then(function (result) {
+        .then(result => {
           console.log(result)
           _this.categories = result.data
         })
     },
     linkToList (categoryId) {
-      this.$router.push({name: 'list', params: {categoryId: categoryId}})
+      this.$router.push({name: 'list', params: { categoryId }})
     }
   }
 }
