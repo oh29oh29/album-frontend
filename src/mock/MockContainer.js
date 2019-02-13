@@ -4,10 +4,6 @@ import { posts } from "./responseData/posts";
 
 export class MockContainer {
     constructor (axios) {
-        this.init(axios);
-    }
-
-    init (axios) {
         this.mock = new MockAdapter(axios)
         this.createResponse();
     }
