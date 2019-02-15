@@ -38,15 +38,15 @@ export default new Router({
     {
       path: '/',
       name: 'category',
-      component: Category
+      component: Category,
     },
     {
-      path: '/list',
+      path: '/:categoryId',
       name: 'list',
       component: List
     },
     {
-      path: '/detail',
+      path: '/:categoryId/:postId',
       name: 'detail',
       component: Detail
     }

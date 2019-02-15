@@ -9,7 +9,10 @@ export class MockContainer {
     }
 
     createResponse () {
-        this.mock.onGet('/categories').reply(200, categories);
-        this.mock.onGet('/post').reply(200, posts);
+        this.mock.onGet('/').reply(200, categories);
+        this.mock.onGet(new RegExp(`/[1-9]`)).reply(200, posts);
+        const url = new RegExp(`/^\d$/`)
+        console.log(url)
+        this.mock.onGet(new RegExp(`/[1-9]`) + new RegExp(`/[1-9]`)).reply(200, posts[0]);
     }
 }

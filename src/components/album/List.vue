@@ -9,7 +9,7 @@
 <script>
 export default {
   name: 'List',
-  created: function () {
+  created () {
     this.fetchData()
   },
   data () {
@@ -20,17 +20,14 @@ export default {
   methods: {
     fetchData () {
       const _this = this
-      this.$http.get('/post', {
-        params: {
-          categoryId: _this.$route.params.categoryId
-        }
-      }).then(result => {
-        console.log(result)
-        _this.posts = result.data
+      this.$http.get('/' + _this.$route.params.categoryId)
+        .then(result => {
+          console.log(result)
+          _this.posts = result.data
       })
     },
     linkToDetail (postId) {
-      this.$router.push({name: 'detail', params: { postId }})
+      this.$router.push(this.$route.params.categoryId + "/" + postId)
     }
   }
 }

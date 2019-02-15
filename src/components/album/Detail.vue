@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'Detail',
-  created: function () {
+  created () {
     this.fetchData()
   },
   data () {
@@ -22,7 +22,8 @@ export default {
   methods: {
     fetchData () {
       const _this = this
-      this.$http.get('/post/' + _this.$route.params.postId)
+      console.log('/' + _this.$route.params.categoryId + '/' + _this.$route.params.postId)
+      this.$http.get('/' + _this.$route.params.categoryId + '/' + _this.$route.params.postId)
         .then(result => {
           console.log(result.data)
           _this.post = result.data

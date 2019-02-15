@@ -11,7 +11,7 @@
 <script>
 export default {
   name: 'Category',
-  created: function () {
+  created () {
     this.fetchData()
   },
   data () {
@@ -22,14 +22,14 @@ export default {
   methods: {
     fetchData () {
       const _this = this
-      this.$http.get('/categories')
+      this.$http.get('/')
         .then(result => {
           console.log(result)
           _this.categories = result.data
         })
     },
     linkToList (categoryId) {
-      this.$router.push({name: 'list', params: { categoryId }})
+      this.$router.push(categoryId)
     }
   }
 }
