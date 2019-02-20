@@ -12,7 +12,7 @@
 export default {
   name: 'Category',
   created () {
-    this.fetchData()
+    this.fetchData();
   },
   data () {
     return {
@@ -21,15 +21,15 @@ export default {
   },
   methods: {
     fetchData () {
-      const _this = this
+      const _this = this;
       this.$http.get('/')
-        .then(result => {
-          console.log(result)
-          _this.categories = result.data
+        .then(response => {
+          console.log(response);
+          _this.categories = response.data;
         })
     },
     linkToList (categoryId) {
-      this.$router.push(categoryId)
+      this.$router.push(categoryId);
     }
   }
 }
