@@ -24,13 +24,14 @@
 //   ]
 // })
 
-import Vue from 'vue'
-import Router from 'vue-router'
-import Category from './components/album/Category'
-import List from './components/album/List'
-import Detail from './components/album/Detail'
+import Vue from 'vue';
+import Router from 'vue-router';
+import CategoryList from './components/album/CategoryList';
+import PostList from './components/album/PostList';
+import PostDetail from './components/album/PostDetail';
+import CategoryMngt from './components/album/CategoryMngt';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
@@ -38,17 +39,22 @@ export default new Router({
     {
       path: '/',
       name: 'category',
-      component: Category,
+      component: CategoryList,
+    },
+    {
+      path: '/category',
+      name: 'categoryMngt',
+      component: CategoryMngt
     },
     {
       path: '/:categoryId',
       name: 'list',
-      component: List
+      component: PostList
     },
     {
       path: '/:categoryId/:postId',
       name: 'detail',
-      component: Detail
+      component: PostDetail
     }
   ]
-})
+});

@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import DetailModal from './Detail';
+import DetailModal from './PostDetail';
 export default {
-  name: 'List',
+  name: 'PostList',
   created () {
     this.fetchData()
   },

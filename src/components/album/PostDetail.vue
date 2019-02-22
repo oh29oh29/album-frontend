@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'Detail',
+  name: 'PostDetail',
   created () {
     this.fetchData()
   },
