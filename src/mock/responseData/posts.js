@@ -37,7 +37,7 @@ const category4Posts = [
   { id: "48", categoryId: '4', description: 'desc', uploadDate: '20190101', realDate: '20190101', imageUrl: 'https://picsum.photos/500/500/?image=740' }
 ];
 
-const totalPosts = new Array(category1Posts, category2Posts, category3Posts, category4Posts);
+const totalPosts = [].concat(category1Posts, category2Posts, category3Posts, category4Posts);
 
 export const posts = {
   category1Posts, category2Posts, category3Posts, category4Posts, totalPosts
